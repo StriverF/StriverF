@@ -1,11 +1,17 @@
-### Hi there 👋
+## Hi, Everyone!
+I love programming. Below are some of my projects:
 
-[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=StriverF)](https://github.com/anuraghazra/github-readme-stats)
+- [linq4c](https://github.com/haifenghuang/linq4c)
+- [monkey](https://github.com/haifenghuang/monkey)
+- [magpie](https://github.com/haifenghuang/magpie)
+- [ExpressionParser](https://github.com/haifenghuang/ExpressionParser)
 
-<!--
-**StriverF/StriverF** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
+<p align="center">
+<a href="https://github.com/StriverF">
+  <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=haifenghuang&show_icons=true&theme=react&include_all_commits=true&count_private=false"/>
+  <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=haifenghuang&layout=compact&langs_count=8&theme=react"/>
+</a>
+</p>
 
 - 🔭 I’m currently working on ...
 - 🌱 I’m currently learning ...
