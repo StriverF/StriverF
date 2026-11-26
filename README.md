@@ -2,12 +2,14 @@
 
 <p align="center">
 <a href="https://github.com/StriverF">
-  <img alt="Alan Yin’s GitHub stats" width="49%" src="https://github-stats-extended.vercel.app/api?username=StriverF&show_icons=true&theme=react&include_all_commits=true&count_private=false&card_width=467&line_height=37"/>
+  <img alt="Annual contributions including private activity, with public GitHub stats below" width="49%" src="https://github-stats-extended.vercel.app/api?username=StriverF&show_icons=true&theme=react&include_all_commits=true&card_width=467&line_height=37&custom_title=1,708%20contributions%20in%20the%20last%20year"/>
 </a>
 <a href="https://github.com/StriverF?tab=repositories">
   <img alt="Most used languages in StriverF’s public repositories" width="49%" src="https://github-stats-extended.vercel.app/api/top-langs/?username=StriverF&layout=compact&langs_count=20&theme=react&hide=html,css&card_width=467"/>
 </a>
 </p>
+
+<sub>The yearly total includes private contributions. The breakdown and rank use public data.</sub>
 
 - 🔭 I’m currently working on ...
 - 🌱 I’m currently learning ...
