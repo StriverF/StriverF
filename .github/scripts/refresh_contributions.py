@@ -38,10 +38,8 @@ def authenticated_stats():
         login
         privateAccess: repositories(first: 1, privacy: PRIVATE,
           affiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER]) { totalCount }
-        followers { totalCount }
         issues { totalCount }
         pullRequests { totalCount }
-        contributionsCollection { totalPullRequestReviewContributions }
         repositories(first: 100, after: $endCursor, ownerAffiliations: [OWNER]) {
           nodes { stargazerCount }
           pageInfo { hasNextPage endCursor }
@@ -59,30 +57,12 @@ def authenticated_stats():
         "commits": search["total_count"],
         "prs": user["pullRequests"]["totalCount"],
         "issues": user["issues"]["totalCount"],
-        "reviews": user["contributionsCollection"]["totalPullRequestReviewContributions"],
-        "followers": user["followers"]["totalCount"],
         "stars": sum(repo["stargazerCount"] for page in pages
                      for repo in page["data"]["viewer"]["repositories"]["nodes"]),
     }
 
 
-def rank(stats):
-    # GitHub Stats Extended, packages/core/src/calculateRank.ts (all_commits=true).
-    score = (
-        2 * (1 - 2 ** (-stats["commits"] / 1000))
-        + 3 * (1 - 2 ** (-stats["prs"] / 50))
-        + (1 - 2 ** (-stats["issues"] / 25))
-        + (1 - 2 ** (-stats["reviews"] / 2))
-        + 4 * stats["stars"] / (50 + stats["stars"])
-        + stats["followers"] / (10 + stats["followers"])
-    ) / 12
-    thresholds = [(1, "S"), (12.5, "A+"), (25, "A"), (37.5, "A-"), (50, "B+"),
-                  (62.5, "B"), (75, "B-"), (87.5, "C+"), (100, "C")]
-    return next(label for limit, label in thresholds if 100 * (1 - score) <= limit), score
-
-
 def render(total, stats):
-    level, score = rank(stats)
     date = datetime.now(timezone.utc).date()
     rows = [("All-time commits", stats["commits"]), ("Pull requests", stats["prs"]),
             ("Issues opened", stats["issues"]), ("Stars earned", stats["stars"])]
@@ -90,21 +70,16 @@ def render(total, stats):
     for index, (label, value) in enumerate(rows):
         y = 94 + index * 34
         lines.append(f'<text x="24" y="{y}">{label}</text>'
-                     f'<text x="245" y="{y}" text-anchor="end">{value:,}</text>')
+                     f'<text x="443" y="{y}" text-anchor="end">{value:,}</text>')
     metrics = "\n".join(lines)
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="467" height="265" viewBox="0 0 467 265" role="img" aria-labelledby="title desc">
-  <title id="title">GitHub contributions and activity rank</title>
-  <desc id="desc">Totals include accessible public and private repositories. Rank {level} as of {date}.</desc>
+  <title id="title">GitHub contributions</title>
+  <desc id="desc">Totals include accessible public and private repositories as of {date}.</desc>
   <rect x=".5" y=".5" width="466" height="264" rx="5" fill="#20232a" stroke="#e4e2e2"/>
   <g font-family="Segoe UI, Ubuntu, sans-serif">
     <text id="annual" x="24" y="37" fill="#61dafb" font-size="18" font-weight="600">{total:,} contributions in the last year</text>
     <path d="M24 57h419" stroke="#414852"/>
     <g fill="#e6edf3" font-size="15" font-weight="600">{metrics}</g>
-    <circle cx="365" cy="136" r="44" fill="none" stroke="#344955" stroke-width="6"/>
-    <circle cx="365" cy="136" r="44" fill="none" stroke="#61dafb" stroke-width="6" pathLength="100"
-      stroke-dasharray="{score * 100:.2f} 100" transform="rotate(-90 365 136)" stroke-linecap="round"/>
-    <text x="365" y="144" text-anchor="middle" fill="#fff" font-size="26" font-weight="700">{level}</text>
-    <text x="365" y="206" text-anchor="middle" fill="#c2cbd5" font-size="13">Activity rank</text>
     <text x="24" y="243" fill="#b4bdc8" font-size="13">Public + private stats · {date}</text>
   </g>
 </svg>
