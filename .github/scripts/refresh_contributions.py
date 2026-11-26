@@ -8,7 +8,7 @@ import re
 import subprocess
 from urllib.request import Request, urlopen
 
-CARD = Path("profile/activity.svg")
+CARD = Path("profile/contributions.svg")
 OWNER = "StriverF"
 
 

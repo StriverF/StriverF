@@ -2,7 +2,7 @@
 
 <p align="center">
 <a href="https://github.com/StriverF">
-  <img alt="Contributions and activity across public and private repositories" width="49%" src="./profile/activity.svg?v=2"/>
+  <img alt="Contributions and activity across public and private repositories" width="49%" src="./profile/contributions.svg"/>
 </a>
 <a href="https://github.com/StriverF?tab=repositories">
   <img alt="Most used languages in StriverF’s public repositories" width="49%" src="https://github-stats-extended.vercel.app/api/top-langs/?username=StriverF&layout=compact&langs_count=20&theme=react&hide=html,css&card_width=467"/>
