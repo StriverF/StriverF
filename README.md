@@ -1,22 +1,19 @@
-## Hi, Everyone!
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./profile/snake-dark.svg">
+  <img alt="An amber snake weaving through my GitHub contribution calendar" src="./profile/snake.svg" width="100%">
+</picture>
 
-<p align="center">
-<a href="https://github.com/StriverF">
-  <img alt="Contributions and activity across public and private repositories" width="49%" src="./profile/contributions.svg"/>
-</a>
-<a href="https://github.com/StriverF?tab=repositories">
-  <img alt="Most used languages in StriverF’s public repositories" width="49%" src="https://github-stats-extended.vercel.app/api/top-langs/?username=StriverF&layout=compact&langs_count=20&theme=react&hide=html,css&card_width=467"/>
-</a>
-</p>
-
-<sub>The annual total refreshes daily. The dated activity stats include public and private repositories.</sub>
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+<table>
+  <tr>
+    <td width="50%" valign="middle">
+      <h3>Hi, I’m Alan.</h3>
+      <p>I build web and mobile apps, and little tools for my Mac.</p>
+      <p>Ever come back to a pull request and wonder which chat it came from? I built <a href="https://github.com/StriverF/vibe-session-hub">Vibe Session Hub</a> so I can jump back into that conversation with just a PR number or branch name.</p>
+    </td>
+    <td width="50%" valign="middle">
+      <a href="https://github.com/StriverF?tab=repositories">
+        <img alt="Most Used Languages in my public repositories" width="100%" src="https://github-stats-extended.vercel.app/api/top-langs/?username=StriverF&amp;layout=compact&amp;langs_count=20&amp;theme=react&amp;hide=html,css&amp;card_width=467">
+      </a>
+    </td>
+  </tr>
+</table>
